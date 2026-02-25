@@ -1,77 +1,105 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Flexbox 2 — flexible sized items</title>
-    <style>
-      html {
-        font-family: sans-serif;
-      }
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Bolo css</title>
+  <style>
+    /* Estilo geral da página */
+    body {
+      font-family: Arial, sans-serif; /* Fonte usada no site */
+      background: linear-gradient(135deg, #fff5e1, #ffe0b2); /* Fundo com gradiente suave */
+      margin: 0; /* Remove margens padrão do navegador */
+      padding: 20px; /* Espaço interno da página */
+    }
 
-      body {
-        margin: 0;
-      }
+    /* Cabeçalho */
+    header {
+      background-color: #40c51b; /* Cor de fundo verde */
+      color: #fff; /* Texto branco */
+      text-align: center; /* Centraliza o texto */
+      padding: 20px; /* Espaço interno */
+      border-radius: 8px; /* Cantos arredondados */
+    }
 
-      header {
-        background: purple;
-        height: 100px;
-      }
+    /* Caixa de cada bolo */
+    .bolos {
+      background: #fff; /* Fundo branco */
+      padding: 20px; /* Espaço interno */
+      margin: 20px auto; /* Espaço externo e centralização */
+      border-radius: 8px; /* Cantos arredondados */
+      width: 300px; /* Largura fixa */
+      text-align: center; /* Centraliza conteúdo */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra leve */
+    }
 
-      h1 {
-        text-align: center;
-        color: white;
-        line-height: 100px;
-        margin: 0;
-      }
+    /* Título dentro da caixa */
+    .bolos h2 {
+      margin-bottom: 15px; 
+    }
 
-      article {
-        padding: 10px;
-        margin: 10px;
-        background: aqua;
-      }
+    /* Botões */
+    button {
+      background-color: #40c51b; 
+      color: white; 
+      border: none; 
+      padding: 12px 20px; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      font-size: 16px; 
+      font-weight: bold; 
+      transition: background-color 0.3s ease; 
+    }
 
-      /* Add your flexbox CSS below here */
+    /* Efeito ao passar o mouse */
+    button:hover {
+      background-color: #2e8b15; 
+    }
 
-      section {
-        display: flex;
-      }
+    /* Mensagem de confirmação */
+    #mensagem {
+      margin-top: 15px; /* Espaço acima da mensagem */
+      font-size: 14px; /* Tamanho da fonte */
+      color: #333; /* Cor cinza escuro */
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Bolo da Raquel</h1>
+    <p>Escolha seu bolo favorito!</p>
+  </header>
 
-      article {
-        flex: 1 200px;
-      }
+  <!-- Caixa de bolo de chocolate -->
+  <div class="bolos">
+    <h2>Bolo de Chocolate</h2>
+    <button onclick="comprar('Bolo de Chocolate')">Comprar</button>
+  </div>
 
-      article:nth-of-type(3) {
-        flex: 2 200px;
-      }
-      
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Sample flexbox example</h1>
-    </header>
+  <!-- Caixa de bolo de morango -->
+  <div class="bolos">
+    <h2>Bolo de Morango</h2>
+    <button onclick="comprar('Bolo de Morango')">Comprar</button>
+  </div>
 
-    <section>
-      <article>
-        <h2>First article</h2>
+  <!-- Caixa de bolo de baunilha -->
+  <div class="bolos">
+    <h2>Bolo de Baunilha</h2>
+    <button onclick="comprar('Bolo de Baunilha')">Comprar</button>
+  </div>
 
-        <p>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.</p>
-      </article>
+  <!-- Mensagem que aparece após clicar -->
+  <p id="mensagem"></p>
 
-      <article>
-        <h2>Second article</h2>
-
-        <p>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.</p>
-      </article>
-
-      <article>
-        <h2>Third article</h2>
-
-        <p>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.</p>
-
-        <p>Cray food truck brunch, XOXO +1 keffiyeh pickled chambray waistcoat ennui. Organic small batch paleo 8-bit. Intelligentsia umami wayfarers pickled, asymmetrical kombucha letterpress kitsch leggings cold-pressed squid chartreuse put a bird on it. Listicle pickled man bun cornhole heirloom art party.</p>
-      </article>
-    </section>
-  </body>
+  <script>
+    /* Função chamada quando o usuário clica em "Comprar" */
+    function comprar(nomeBolo) {
+      // Seleciona o parágrafo com id "mensagem" e altera o texto
+      document.getElementById("mensagem").textContent =
+        `Você escolheu ${nomeBolo}! Obrigado pela compra.`;
+    }
+  </script>
+</body>
 </html>
+
+
